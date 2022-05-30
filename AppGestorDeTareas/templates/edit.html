@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Tareas</title>
+    <!-- hoja de estilo propria -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <!-- bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/yeti/bootstrap.min.css">
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap" rel="stylesheet">
+    <!-- Font Awesome: framework de iconos vectoriales y estilos css utilizado para sustituir imágenes de iconos
+    comunes por gráficos vectoriales convertidos en fuentes-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css"
+          integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+
+</head>
+<body>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="https://img.icons8.com/external-inipagistudio-lineal-color-inipagistudio/64/000000/external-task-remote-collaboration-inipagistudio-lineal-color-inipagistudio.png"/>
+      Gestor de Tareas app
+    </a>
+    <a class="navbar-brand" style="font-size:1em" href="mailto:wandersoncolatino@hotmail.com">
+    @wandersoncolatino
+    </a>
+  </div>
+</nav>
+    <h1 class="display-4 text-center mt-4 titulo"> Editar Tarea </h1>
+
+<div class="col-md-7 offset-md-2 my-auto"> <!-- Este div ocupa 7 columnas -->
+    <form action="/update/{{tarea.id}}" method="post" class="row">
+        <!-- separamos el input del boton metiendo el input en este form-group
+        para que los elementos no esten pegados y haya separación entre ellos. -->
+        <div class="form-group p-2  bg-light col-md-5 mr-sm-2">
+            <input type="text" name="contenido_tarea" placeholder="Editar Tarea" value="{{tarea.1}}" class="form-control" autofocus>
+        </div>
+        <div class="form-group p-2  bg-light col-sm-2 mr-sm-2">
+            <input type="text" name="contenido_categoria" placeholder="Editar Categoria" value="{{tarea.2}}" class="form-control" autofocus>
+        </div>
+        <div class="form-group p-2  bg-light col-sm-2 mr-sm-2">
+            <input id="date" type="date" name="fecha_limite" value="{{tarea.3}}" class="form-control" autofocus>
+        </div>
+        <button type="submit" class="btn btn-outline-primary btn-sm col-md-2">
+            Guardar
+        </button>
+    </form>
+</div>
+</body>
+</html>
